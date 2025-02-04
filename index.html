@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Js Assignment</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        justify-content: center;
+        text-align: center;
+    }
+    .navbar{
+            display: flex;
+            background-color: rgb(206, 193, 193);
+
+        }
+        .details ul{
+            display: flex;
+            transform: translateX(70vh);
+            
+        }
+        .navbar img{
+            margin-left: 10vh;
+            display: flex;
+            position: absolute;
+            margin-top: 1vh;
+            mix-blend-mode: multiply;
+
+        }
+        .navbar ul{
+            display: flex;
+            justify-content: end;
+            gap: 10vh;
+            text-align: center;
+            list-style-type: none;
+            padding: 5vh;
+            margin-right: 10vh;
+        }
+        .navbar a{
+            text-decoration: none;
+            color: black;
+        }
+
+    .task_1{
+
+        margin-top: 10vh;
+        padding: auto;
+    }
+    .task1_btn, .box button{
+        padding: 1vh;
+        margin: 1vh;
+        border: 0;
+        color: #fff0f0;
+        background-color: #333;
+        text-transform: uppercase;
+        border: 1px solid #333;
+    }
+    .task1_btn:hover , .box button:hover{
+        color: #333;
+        background-color: #fff0f0;
+        transition: .5s all ease;
+        border: 1px solid #333;
+    }
+    .task1_btn:active , .box button:active{
+        color: #fff0f0;
+        background-color: #333;
+    }
+
+    .task_2{
+        margin-top: 10vh;
+        background-color: blue;
+        color: #fff0f0;
+        
+    }
+    .task_2 h1{
+        padding-top: 5vh;
+    }
+    .boxes{
+        display: flex;
+        justify-content: center;
+        margin-top: 5vh;
+        justify-content: space-around;
+    }
+    .box{
+        display: flex;
+        height: 20vh;
+        width: 20vh;
+        border: 1px solid #333;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10vh;
+    }
+    .box button{
+        height: fit-content;
+    }
+    .box1{
+        background-color: cyan;
+    }
+    .box2{
+        background-color: purple;
+    }
+    .box3{
+        background-color: yellow;
+    }
+    #task3{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .task_3{
+        margin-top: 10vh;
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .generate{
+        margin-top: 5vh;
+        padding: 5vh;
+        border-radius: 2vh;
+        width: 50vh;
+        height: fit-content;
+        background-color: #fff0f0;
+    }
+    #length{
+        width: 5vh;
+    }
+    .buttons button{
+        padding: 1vh;
+        border: none;
+        background-color: rgb(35, 160, 237);
+        color: white;
+        border-radius: .5vh;
+    }
+    .buttons button:hover{
+        background-color: rgb(31, 141, 210);
+        transition: .5s all ease;
+    }
+    .buttons button:active{
+        background-color: rgb(35, 160, 237);
+    }
+    footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+</style>
+<body>
+
+    <div class="navbar">
+        <img src="images/ppsu.png" alt="" width="200">
+        <div class="details">
+            <ul>
+                <li><a href="#">Name :- Raj Purohit</a></li>
+                <li><a href="#">Enrollment No :- 23SE09IT008</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--==================== Task1 ====================-->
+    <section id="task1">
+        <div class="task_1">
+            <h1>Simple Counter</h1>
+    
+            <h2 id="Count">0</h2>
+            <button class="task1_btn" id="Inc">Increase</button>
+            <button class="task1_btn" id="Dec">Decrease</button>
+            <button class="task1_btn" id="Res">Reset</button>
+        </div>
+    </section>
+    
+    <!--==================== Task2 ====================-->
+    <section id="task2">
+        <div class="task_2">
+            <h1>Change The Background Color Using js</h1>
+            <div class="boxes">
+                <div class="box1 box">
+                    <button class="btn1" onclick="changeColor();">Click</button>
+                </div>
+                <div class="box2 box">
+                    <button class="btn2" onclick="changeColor()">Click</button>
+                </div>
+                <div class="box3 box">
+                    <button class="btn3" onclick="changeColor();">Click</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--==================== Task3 ====================-->
+    <section id="task3">
+        <div class="task_3">
+            <h1>Random Password Generator</h1>
+            <div class="generate">
+            <input type="text" class="" name="" id="pass" disabled>
+            <div style="padding: 2vh;">
+                <label for="">Passowrd length:</label>
+                <input type="number" name="length" id="length" min="1">
+            </div>
+            <div class="buttons">
+                <button onclick="generate();">Generate Password</button>
+                <button onclick="copyToClipboard();">Copy to Clipboard</button>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Raj Purohit, 23SE09IT008. All Rights Reserved.</p>
+    </footer>
+<script>
+
+    // Task1 javaScript
+    let btnInc = document.querySelector("#Inc");
+    let btnDec = document.querySelector("#Dec");
+    let btnRes = document.querySelector("#Res");
+
+    let count = document.querySelector("#Count");
+    let i = 0;
+
+    btnInc.addEventListener("click" , function(){
+        i += 1;
+        count.innerText = i;
+    });
+
+    btnDec.addEventListener("click" , function(){
+        i -= 1;
+        count.innerText = i;
+    });
+    btnRes.addEventListener("click" , function(){
+        i=0;
+        count.innerText = i;
+    });
+
+
+    // Task 2 javaScript
+    let box1 = document.querySelector(".box1");
+    let box2 = document.querySelector(".box2");
+    let box3 = document.querySelector(".box3");
+
+    let btn1 = document.querySelector(".btn1");
+    let btn2 = document.querySelector(".btn2");
+    let btn3 = document.querySelector(".btn3");
+
+    function changeColor(){
+        let array = ["Red" , "Blue" , "Green" , "Yellow" , "Pink" , "Purple" , "Green" , "Orange" , "Gray"];
+        const random = Math.floor(Math.random() *array.length);
+        box1.addEventListener("click", function(){
+            box1.style.backgroundColor = array[random];
+        });
+        box2.addEventListener("click", function(){
+            box2.style.backgroundColor = array[random];
+        });
+        box3.addEventListener("click", function(){
+            box3.style.backgroundColor = array[random];
+        });
+        
+    }
+
+    // Task3 JavaScript
+    let length_input = document.querySelector("#length");
+    let pass = document.querySelector("#pass");
+    function generate(){
+    let length = length_input.value || 4,
+    charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*",
+    retVal = "";
+    for(var i = 0,n = charset.length; i<length ; i++){
+        retVal += charset.charAt(Math.floor(Math.random()*n));
+    }
+    pass.value = retVal;
+    }
+
+    function copyToClipboard() {
+    let passwordField = document.querySelector("#pass");
+    let passwordText = passwordField.value;
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(passwordText).then(() => {
+            alert("Password copied to clipboard!");
+        }).catch((err) => {
+            alert("Oops, unable to copy! Error: " + err);
+        });
+    } else {
+        alert("Clipboard API not supported in this browser.");
+    }
+}
+
+</script>
+</body>
+</html>
